@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+			<item android:id="@+id/new_game"
+          android:title="New Game 0"
+          android:showAsAction="ifRoom"/>
+	<item android:id="@+id/new_game1"
+          android:title="New Game 1"
+          android:showAsAction="ifRoom"/>
+	<item android:id="@+id/new_game2"
+          android:title="New Game 2"
+          android:showAsAction="ifRoom"/>
+			</menu>

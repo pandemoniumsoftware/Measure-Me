@@ -4,8 +4,8 @@ using Android.OS;
 
 namespace MeasureMe
 {
-	[Activity(Label = "Measure Me", MainLauncher = true, Icon = "@mipmap/icon")]
-	public class MainActivity : Android.Support.V4.App.FragmentActivity
+	[Activity(Label = "Measure Me", MainLauncher = true, Icon = "@mipmap/icon", Theme="@style/MyTheme")]
+	public class MainActivity : Android.Support.V7.App.AppCompatActivity//Android.Support.V4.App.FragmentActivity
 	{
 
 		protected override void OnCreate(Bundle savedInstanceState)
@@ -21,10 +21,16 @@ namespace MeasureMe
 				new UserInformationFragment()
 			};
 
-			var viewPager = FindViewById<Android.Support.V4.View.ViewPager>(Resource.Id.viewPager);
+			var viewPager = FindViewById<Android.Support.V4.View.ViewPager>(Resource.Id.viewpager);
 
 			viewPager.Adapter = new ViewPagerFragmentAdapter(base.SupportFragmentManager, fragments);
+
+			var tabLayout = FindViewById<Android.Support.Design.Widget.TabLayout>(Resource.Id.sliding_tabs);
+			tabLayout.SetupWithViewPager(viewPager);
 		}
+
+
+
 	}
 }
 

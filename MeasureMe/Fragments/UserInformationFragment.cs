@@ -20,6 +20,7 @@ namespace MeasureMe
 		{
 			base.OnCreate(savedInstanceState);
 
+			HasOptionsMenu = true;
 			// Create your fragment here
 		}
 
@@ -30,6 +31,11 @@ namespace MeasureMe
 			return inflater.Inflate(Resource.Layout.UserInformation, container, false);
 
 			//return base.OnCreateView(inflater, container, savedInstanceState);
+		}
+
+		public override void OnCreateOptionsMenu(IMenu menu, MenuInflater inflater)
+		{
+			inflater.Inflate(Resource.Menu.TestMenu, menu);
 		}
 	}
 }
