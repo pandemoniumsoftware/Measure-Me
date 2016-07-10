@@ -1,5 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="hello">Hello World, Click Me!</string>
 	<string name="app_name">Measure Me</string>
+  <string name="NameString"><b>First Name:</b></string>
+  <string name="AgeString"><b>Age:</b></string>
+  <string name="FemaleText">Female</string>
+  <string name="MaleText">Male</string>
+  <string name="SexString"><b>Gender:</b></string>
+  <string name="SaveButtonString">Save Changes</string>
+  <string name="HeightString"><b>Height:</b></string>
+  <string name="FeetString">Feet</string>
+  <string name="InchString">Inches</string>
+  <string name="WeightString"><b>Weight (lbs):</b></string>
+  <string name="ActivityString"><b>Activity Level:</b></string>
+  <string name="ActivityDescString"><b>Sedentary:</b> Desk job, very little exercise or motion.\n\n<b>Light Activity:</b> Long walks 3+ days a week.\n\n<b>Moderately Active:</b> Moving most of the day or exercising 3+ days a week.\n\n<b>Very Active:</b> Vigorous activities most of the days of the week.</string>
+	<string name="toastString">Changes saved...</string>
 </resources>

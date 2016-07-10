@@ -1,10 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <TextView
-        android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+<!-- Name Layout -->
+<!-- Get rid of name....
+	<RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is the User information tab..." />
+        android:id="@+id/relativeLayout1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="@string/NameString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+        <EditText
+            android:id="@+id/editText_Name"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAlignment="gravity"
+            android:gravity="right"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout> -->
+<!-- Sex -->
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_Sex"
+            android:layout_alignParentLeft="true"
+            android:text="@string/SexString"
+            android:layout_centerVertical="true" />
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/textView_Sex"
+            android:id="@+id/radioGroup1"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:gravity="right">
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/MaleText"
+                android:id="@+id/radioButton_Male" />
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/FemaleText"
+                android:id="@+id/radioButton_Female" />
+        </RadioGroup>
+    </RelativeLayout>
+<!-- Age Layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout1"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="@string/AgeString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView1"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+        <EditText
+            android:id="@+id/editText_Age"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:inputType="numberDecimal"
+            android:gravity="right"
+            android:textAlignment="gravity"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+<!-- Height Layout -->
+    <RelativeLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout3"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="@string/HeightString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_Height_Feet"
+            android:layout_centerVertical="true"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:layout_toLeftOf="@+id/textView3" />
+        <TextView
+            android:text="@string/FeetString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView3"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/spinner_Height_Inches"
+            android:layout_marginRight="10dp" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_Height_Inches"
+            android:layout_toLeftOf="@+id/textView4" />
+        <TextView
+            android:text="@string/InchString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+<!-- Weight Layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout4"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="@string/WeightString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView5"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+        <EditText
+            android:inputType="numberDecimal"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText_Weight"
+            android:layout_alignParentRight="true"
+            android:textAlignment="gravity"
+            android:gravity="right" />
+    </RelativeLayout>
+<!-- Activity Level Layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout5"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="@string/ActivityString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView6"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+        <Spinner
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner_ActivityLevel"
+            android:layout_alignParentRight="true"
+            android:gravity="right"
+            android:layout_centerVertical="true"
+            android:textAlignment="gravity" />
+    </RelativeLayout>
+<!-- Activity Level Explanation -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout6"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:text="@string/ActivityDescString"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView7"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true" />
+    </RelativeLayout>
+<!-- Save Changes Button -->
+    <RelativeLayout
+        android:id="@+id/relativeLayout_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <Button
+            android:text="@string/SaveButtonString"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_SaveChanges"
+            android:layout_alignParentBottom="true" />
+    </RelativeLayout>
 </LinearLayout>
