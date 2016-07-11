@@ -27,6 +27,9 @@ namespace MeasureMe
 
 			var tabLayout = FindViewById<Android.Support.Design.Widget.TabLayout>(Resource.Id.sliding_tabs);
 			tabLayout.SetupWithViewPager(viewPager);
+
+			// Initialize DB Connection
+			var DBConnection = SQLiteConnection.DB;
 		}
 
 

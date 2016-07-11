@@ -32,14 +32,34 @@ namespace MeasureMe
 		// Button Objects
 		private Button saveChanges;
 
-		public override void OnCreate(Bundle savedInstanceState)
+		public async override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
 
 			HasOptionsMenu = true;
-			// Create your fragment here
 
+			// If the user already has data, pull into Cache.
+			if (await SQLiteConnection.DoesUserDataExist())
+			{
+				// Populate user data, otherwise do nothing
+				User currentUser = await SQLiteConnection.GetUserData();
+				await SetUIElements(currentUser);
+			}
         }
+
+		private async Task SetUIElements(User user)
+		{
+			await Task.Run(() =>
+		   {
+				// Set Age and Weight Texts
+				ageText.Text = user.Age.ToString();
+			    weightText.Text = user.Weight.ToString();
+
+
+			});
+
+		}
+
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
@@ -82,7 +102,12 @@ namespace MeasureMe
 			if (await SaveUserIsSuccessfull())
 			{
 				var saveToast = Toast.MakeText(Context, Resource.String.toastString, ToastLength.Long);
+				System.Diagnostics.Debug.WriteLine("This code has been called!");
 				saveToast.Show();
+			}
+			else
+			{
+				System.Diagnostics.Debug.WriteLine("There were errors found!");
 			}
 		}
 
@@ -109,6 +134,11 @@ namespace MeasureMe
 				var lastUser = await MeasureMe.SQLiteConnection.GetUserData();
 
 				System.Diagnostics.Debug.WriteLine("Latest user information: " + lastUser.ToString());
+				isSuccess = true;
+			}
+			else
+			{
+				isSuccess = false;
 			}
 
 			return isSuccess;
@@ -163,6 +193,7 @@ namespace MeasureMe
 			}
 			catch (Exception ex)
 			{
+				System.Diagnostics.Debug.WriteLine("An error has occurred while validating the user's input:" + ex.ToString());
 				return false;
 			}
 
