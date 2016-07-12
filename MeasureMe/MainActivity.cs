@@ -10,13 +10,20 @@ namespace MeasureMe
 
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
+			// Initialize DB Connection
+			var DBConnection = SQLiteConnection.DB;
+			var user = MeasureMe.CurrentUser;
+			var DoesUserDataExist = MeasureMe.UserDataExists;
+
+			System.Diagnostics.Debug.WriteLine("DB Initialized...");
+
 			base.OnCreate(savedInstanceState);
 
 			// Set our view from the "main" layout resource
 			SetContentView(Resource.Layout.Main);
 
 			var fragments = new Android.Support.V4.App.Fragment[] {
-				new FavoritesFragment(),
+				new HomeFragment(),
 				new LogFragment(),
 				new UserInformationFragment()
 			};
@@ -28,9 +35,10 @@ namespace MeasureMe
 			var tabLayout = FindViewById<Android.Support.Design.Widget.TabLayout>(Resource.Id.sliding_tabs);
 			tabLayout.SetupWithViewPager(viewPager);
 
-			// Initialize DB Connection
-			var DBConnection = SQLiteConnection.DB;
+
 		}
+
+	
 
 
 

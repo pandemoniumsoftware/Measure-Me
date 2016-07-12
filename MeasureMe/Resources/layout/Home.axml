@@ -4,7 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <TextView
+        android:id="@+id/dateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="This is the Favorites tab..." />
+        android:editable="false" />
+    <TextView
+        android:id="@+id/TDEEText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:editable="false" />
 </LinearLayout>

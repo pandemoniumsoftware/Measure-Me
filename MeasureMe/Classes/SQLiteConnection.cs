@@ -38,7 +38,7 @@ namespace MeasureMe
 
 				_db = new SQLiteAsyncConnection(dbPath);
 
-				var result = await _db.CreateTableAsync<User>(CreateFlags.None);
+				await _db.CreateTableAsync<User>(CreateFlags.None);
 			}
 			catch (Exception ex)
 			{
@@ -60,6 +60,7 @@ namespace MeasureMe
 		{
 			var userCount = await DB.Table<User>().CountAsync();
 
+			System.Diagnostics.Debug.WriteLine("User data exists? " + userCount);
 			return (userCount >= 1);
 		}
 

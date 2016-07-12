@@ -34,32 +34,64 @@ namespace MeasureMe
 
 		public async override void OnCreate(Bundle savedInstanceState)
 		{
-			base.OnCreate(savedInstanceState);
-
-			HasOptionsMenu = true;
-
-			// If the user already has data, pull into Cache.
-			if (await SQLiteConnection.DoesUserDataExist())
+			try
 			{
-				// Populate user data, otherwise do nothing
-				User currentUser = await SQLiteConnection.GetUserData();
-				await SetUIElements(currentUser);
+				base.OnCreate(savedInstanceState);
+
+				HasOptionsMenu = true;
+
+				// If the user already has data, pull into Cache.
+				if (await SQLiteConnection.DoesUserDataExist())
+				{
+					// Populate user data, otherwise do nothing
+					User currentUser = await SQLiteConnection.GetUserData();
+					SetUIElements(currentUser);
+				}
+			}
+			catch (Exception ex)
+			{
+				System.Diagnostics.Debug.WriteLine("Exception occurred during creation of fragment..." + ex.ToString());
 			}
         }
 
-		private async Task SetUIElements(User user)
+
+		private void SetUIElements(User user)
 		{
-			await Task.Run(() =>
-		   {
-				// Set Age and Weight Texts
-				ageText.Text = user.Age.ToString();
-			    weightText.Text = user.Weight.ToString();
 
+			// Set Age and Weight Texts
+			ageText.Text = user.Age.ToString();
+			weightText.Text = user.Weight.ToString();
 
-			});
+			// Set the Height spinners
+			spinnerHeightinFeet.SetSelection(Array.IndexOf(User.HeightInFeetOptions, user.HeightInFeet.ToString()));
+			spinnerHeightinInches.SetSelection(Array.IndexOf(User.HeightInInchesOptions, user.HeightInInches.ToString()));
 
+			// Set the activity spinner
+			spinnerActivityLevel.SetSelection(Array.IndexOf(User.ActivityLevel, user.Activity));
+
+			// Set the gender radio button
+			bool UserIsMale = (user.MaleOrFemale == Gender.Male);
+
+			if (UserIsMale)
+			{
+				maleGender.Checked = true;
+				femaleGender.Checked = false;
+			}
+			else
+			{
+				maleGender.Checked = false;
+				femaleGender.Checked = true;
+			}
 		}
 
+
+
+		public enum SpinnerOptions
+		{
+			HeightInFeet,
+			HeightInInches,
+			ActivityLevel
+		};
 
 		public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
 		{
@@ -131,7 +163,7 @@ namespace MeasureMe
 				// Save to the database
 				await SQLiteConnection.CreateOrUpdateObject(user);
 
-				var lastUser = await MeasureMe.SQLiteConnection.GetUserData();
+				var lastUser = await SQLiteConnection.GetUserData();
 
 				System.Diagnostics.Debug.WriteLine("Latest user information: " + lastUser.ToString());
 				isSuccess = true;

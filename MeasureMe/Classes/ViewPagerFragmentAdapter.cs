@@ -5,7 +5,7 @@ namespace MeasureMe
 	public class ViewPagerFragmentAdapter : Android.Support.V4.App.FragmentPagerAdapter
 	{
 		private Android.Support.V4.App.Fragment[] _fragments;
-		private readonly string[] _titles = { "Log", "Favorites", "User" };
+		private readonly string[] _titles = { "Home", "Daily Log", "User Stats" };
 
 		public ViewPagerFragmentAdapter(Android.Support.V4.App.FragmentManager fm, Android.Support.V4.App.Fragment[] fragments) : base(fm)
 		{

@@ -77,11 +77,12 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\ViewPagerFragmentAdapter.cs" />
-    <Compile Include="Fragments\FavoritesFragment.cs" />
+    <Compile Include="Fragments\HomeFragment.cs" />
     <Compile Include="Fragments\LogFragment.cs" />
     <Compile Include="Fragments\UserInformationFragment.cs" />
     <Compile Include="Classes\User.cs" />
     <Compile Include="Classes\SQLiteConnection.cs" />
+    <Compile Include="Classes\MeasureMe.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
@@ -97,7 +98,7 @@
     <AndroidResource Include="Resources\mipmap-xhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
-    <AndroidResource Include="Resources\layout\Favorites.axml" />
+    <AndroidResource Include="Resources\layout\Home.axml" />
     <AndroidResource Include="Resources\layout\Log.axml" />
     <AndroidResource Include="Resources\layout\UserInformation.axml" />
     <AndroidResource Include="Resources\values\styles.xml" />
